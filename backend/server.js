@@ -23,7 +23,9 @@ const app = express()
 // }
 
 app.use(express.json())
-
+app.get('/', (req, res) => {
+  res.send('API is running....')
+})
 app.use('/products', productRoutes)
 app.use('/users', userRoutes)
 app.use('/orders', orderRoutes)
@@ -43,9 +45,9 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 //     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
 //   )
 // } else {
-//   app.get('/', (req, res) => {
-//     res.send('API is running....')
-//   })
+  // app.get('/', (req, res) => {
+  //   res.send('API is running....')
+  // })
 // }
 
   app.use(express.static(path.join(__dirname,'./frontend/build')))
